@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PRODUCTS } from '../products';
 import { Product } from '../product.model';
 
@@ -8,7 +8,7 @@ import { Product } from '../product.model';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  public products = PRODUCTS;
+  @Input() products: Product[] = PRODUCTS;
 
   constructor() {}
 
@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
     console.log(this.products);
   }
 
-  click(): void {
+  onClick(): void {
     let product: Product = { name: 'test', id: 1 };
     this.products.push(product);
   }
